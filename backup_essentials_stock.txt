@@ -1,0 +1,11 @@
+coke 4 GHC 5
+soap 5 GHC 2
+biscuits 8 GHC 12
+water 10 GHC 1
+bread 12 GHC 1
+sardine 4 GHC 74
+fan Milk 3 GHC 2
+Indomie 4 GHC 3
+salt 4 GHC 1
+pepper 5 GHC 1
+malt 8 GHC 4

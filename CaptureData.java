@@ -1,4 +1,3 @@
-import java.util.Scanner;
 import java.io.PrintWriter;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -63,45 +62,10 @@ public class CaptureData{
 
     public static void displayContent(String filename)throws IOException{
     	List<String> lines = Files.readAllLines(Paths.get(filename));
+    	System.out.println("The current stock at Essentials enterprise are: ");
     	for (int i =0; i<lines.size(); i++){
     		System.out.println(lines.get(i));
     	}
     	
     }
-
-
-
-
-	public static void main (String[] args){
-		Scanner input = new Scanner(System.in);
-		System.out.print("how many stock are we entering today?: ");
-		int number = input.nextInt();
-
-		for (int i = 0; i<number; i++){
-			Scanner input1 = new Scanner(System.in);
-			System.out.print("Enter item name: ");
-			String item = input1.nextLine();
-
-			Scanner input2 = new Scanner(System.in);
-			System.out.print("Enter quantity: ");
-			int quantity = input2.nextInt();
-
-			Scanner input3 = new Scanner(System.in);
-			System.out.print("Enter item price: ");
-			int price = input3.nextInt();
-			getStock(item, quantity, price);
-		}
-		try {
-			createBackup("essentials_stock.txt");
-		}catch(IOException e){
-			e.printStackTrace();
-		}
-		try {
-			displayContent("essentials_stock.txt");
-		}catch(IOException e){
-			e.printStackTrace();
-		}
-				
-	}
-
 }
