@@ -8,44 +8,47 @@ import java.nio.file.Paths;
 import java.nio.file.Files;
 import java. util. ArrayList;
 
-
-
+/**
+ * @author Abdul-Aziz Fuseini 
+ *
+ */
 
 public class CaptureData{
+
+	/**
+	 * Constructor
+	 */
 	public CaptureData(){
 
 	}
 
 	public static void getStock(String item, int quantity, int price){
+		/**
+	 	* Writing Text/String to File using PrintWriter and FileOutputStream
+	 	* Checks for "FileNotFoundException" in the connection to the file
+	 	*/
 		PrintWriter printWriter = null;
-		//PrintWriter printWritten = null;
-    		
+		    		
     	try {
     		//Note that we are able to append to the file because of the "true" parameter
     		printWriter = new PrintWriter(new FileOutputStream("essentials_stock.txt", true));
-    		//printWritten = new PrintWriter(new FileOutputStream("essentials_stock_backup.txt", true));
+    		
     	}catch(FileNotFoundException fnfe) {
     		fnfe.getMessage();
     	}
     		
   			printWriter.printf("%s %d GHC %d",item, quantity, price);
   			printWriter.println();
-
-  			//printWritten.printf("%s %d GHC %d", item, quantity, price);
-  			//printWritten.println();
-
   			
   		    
   		  
-  		  
   		    //Close Writer
   		    printWriter.close();
-  		    //printWritten.close();
 	}
 
 
 
-
+	//method to create a backup file for the text file created
 	public static void createBackup(String filename)
                         throws IOException{
         List<String> lines = Files.readAllLines(Paths.get(filename));
@@ -59,7 +62,7 @@ public class CaptureData{
         }
         output.close();
     }
-
+    //method to print out the content of the text file keeping the records
     public static void displayContent(String filename)throws IOException{
     	List<String> lines = Files.readAllLines(Paths.get(filename));
     	System.out.println("The current stock at Essentials enterprise are: ");
